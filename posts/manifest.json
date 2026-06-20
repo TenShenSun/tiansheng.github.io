@@ -1,89 +1,288 @@
 {
   "layers": [
     { "id": "intro", "name": "开篇 · 总览", "en": "OVERVIEW", "desc": "全栈 Agent 技术地图：四层架构、为什么这样分层，以及整个系列的阅读路径。" },
+    { "id": "frontier", "name": "前沿追踪 · Frontier", "en": "FRONTIER", "desc": "持续追踪 Agent 与大模型领域的最新进展：重要论文、模型发布、产品动态与行业风向，按时间倒序更新。" },
+    { "id": "interview", "name": "大佬访谈 · Interviews", "en": "INTERVIEWS", "desc": "一线从业者、研究员、创业者的访谈纪要与对话精华——他们怎么看 Agent 的现在和未来。" },
+    { "id": "career", "name": "面试备战 · Career", "en": "CAREER", "menu": "interview", "desc": "自己面试、面试别人、辅导别人的一手经验：真实复盘、高频考点、系统设计题拆解，覆盖大厂与 AI 创业公司的真实考察维度。" },
+    { "id": "landscape", "name": "AI落地场景 · Products", "en": "LANDSCAPE", "menu": "landscape", "desc": "拆解市面上真实 AI 产品的落地逻辑：场景选择、产品形态、技术路径与商业模式——什么方向在跑通，什么方向在踩坑。" },
     { "id": "app", "name": "应用层 · Agent 产品", "en": "APPLICATION", "desc": "面向用户的智能体产品：对话架构、内容与安全风控、增长体系、AIGC 工程化。" },
     { "id": "orchestration", "name": "编排层 · Agent Orchestration", "en": "ORCHESTRATION", "desc": "把模型变成会规划、会用工具、有记忆的智能体：编排范式、上下文工程、工具与 MCP。" },
     { "id": "runtime", "name": "运行时层 · Harness + Model", "en": "RUNTIME", "desc": "Agent 真正运行的地方：Harness/Agent Loop 设计、工具沙箱、评测与可观测性。" },
-    { "id": "model", "name": "模型层 · Foundation Model", "en": "MODEL", "desc": "一切之下的地基：Transformer 与注意力、后训练与对齐、推理优化与部署。" }
+    { "id": "model", "name": "模型层 · Foundation Model", "en": "MODEL", "desc": "一切之下的地基：Transformer 与注意力、后训练与对齐、推理优化与部署。" },
+    { "id": "distributed", "name": "分布式系统 · Distributed", "en": "DISTRIBUTED", "desc": "从理论地基到工程实践：CAP/一致性、共识协议、分布式锁/事务/存储/计算，系统拆解分布式系统的核心原理与生产选型。" }
   ],
   "posts": [
     {
-      "slug": "00-series-overview", "order": 0, "code": "00 · 总览", "layer": "intro",
+      "slug": "00-series-overview", "label": "总览", "layer": "intro",
       "title": "开篇：全栈 Agent 技术地图——从应用风控到模型底层",
       "summary": "为什么要用四层架构来理解 Agent 系统？本文给出一张贯穿应用、编排、运行时、模型的完整技术地图，并解释整个系列的阅读路径。",
       "tags": ["综述", "架构", "技术地图"], "readingTime": "12 分钟", "date": "2026-05"
     },
     {
-      "slug": "01-agent-app-architecture", "order": 1, "code": "01 · 应用", "layer": "app",
+      "slug": "frontier-2026-05", "label": "月度前沿", "layer": "frontier",
+      "title": "前沿追踪 · 2026 年 5 月：值得关注的 Agent 进展",
+      "summary": "本月 Agent 与大模型领域的重点动态汇总：新模型发布、关键论文、协议与生态更新，以及它们对全栈 Agent 工程的影响。",
+      "tags": ["前沿", "月度汇总", "动态"], "readingTime": "8 分钟", "date": "2026-05"
+    },
+    {
+      "slug": "interview-yaoshunyu-2026-05-11", "label": "访谈", "layer": "interview",
+      "title": "对姚顺宇的4小时访谈",
+      "summary": "请允许我小疯一下！在Anthropic和Gemini训模型、技术预测、英雄主义已过去。",
+      "source": "张小珺商业访谈录", "sourceUrl": "https://www.bilibili.com/video/BV1YR5E6EE9o/?spm_id_from=333.337.search-card.all.click&vd_source=b38baccd3561c0f230d9bbd5fe4933ec",
+      "tags": ["访谈", "动态"], "readingTime": "8 分钟", "date": "2026-05-11"
+    },
+    {
+      "slug": "career-01-overview", "label": "考点全景", "layer": "career",
+      "title": "Agent / LLM 工程师面试全景：考什么、怎么准备",
+      "summary": "从算法基础、LLM 专项、系统设计到行为面试，拆解 AI 大厂与创业公司的真实考察维度，给出高性价比的备战路径。",
+      "tags": ["面试", "求职", "系统设计", "LLM"], "readingTime": "15 分钟", "date": "2026-05"
+    },
+    {
+      "slug": "career-02-chatbot-interview", "label": "面试实战", "layer": "career",
+      "title": "Chatbot AI 工程师面试题",
+      "summary": "面试 Chatbot AI 候选人最能拉开差距的 Top 10 题：RAG 排查与评估指标体系、幻觉控制、多轮记忆、Agent 工具调用、prompt 工程化管理、安全防御、延迟优化、可观测性 debug，每题附好答案要点。",
+      "tags": ["面试", "Chatbot", "RAG", "Agent", "系统设计", "可观测性"], "readingTime": "20 分钟", "date": "2026-06-02"
+    },
+    {
+      "slug": "landscape-aml-agent", "label": "产品分析", "layer": "landscape",
+      "title": "反洗钱 × AI Agent：从规则引擎到智能体的合规革命",
+      "summary": "AML 是金融合规里误报率最高、技术债最重的场景——传统规则引擎告警误报率高达 90%。本文从 AML 监管背景、六大核心场景出发，拆解传统方案的结构性痛点，给出 GNN+LLM+Agent 的完整技术路径，对比 OKX、Binance、蚂蚁天盾、JP Morgan、HSBC 的真实实践，并深度拆解从 0 到 1 构建 AML 智能平台的分阶段落地路径：场景优先级矩阵、三阶段技术演进、完整技术栈清单、三个关键工程决策与 MVP 验收清单。",
+      "tags": ["AML", "反洗钱", "合规", "GNN", "Agent工程", "金融科技", "加密合规"], "readingTime": "38 分钟", "date": "2026-06-03"
+    },
+    {
+      "slug": "landscape-ai-compliance", "label": "产品分析", "layer": "landscape",
+      "title": "AI 合规落地全景：从 KYC 到合同审查的六大场景与最佳实践",
+      "summary": "合规是 AI 最有说服力的企业落脚点之一——数据量大、规则复杂、人工成本高。本文拆解 KYC 尽职调查、合同智能审查、监管报告自动化、RegTech 变更追踪、合规政策问答助手、数据隐私合规六大场景，给出技术架构与选型建议，并归纳 HITL 设计、可解释性、审计追踪、模型治理五条跨场景最佳实践，附 15 条参考文献。",
+      "tags": ["合规", "KYC", "RegTech", "合同审查", "数据隐私", "GDPR", "金融科技", "HITL"], "readingTime": "25 分钟", "date": "2026-06-08"
+    },
+    {
+      "slug": "landscape-ai-observability", "label": "产品分析", "layer": "landscape",
+      "title": "AI 自愈式可观测性：从告警到 PR 的产品闭环分析",
+      "summary": "从 traces/logs/metrics 自动做根因分析，再用 coding agent 起草 PR——这类 AI-native observability 产品在赌什么？为什么 telemetry 数据是 Agent 的好落脚点，链路难点在哪，护城河怎么建。",
+      "tags": ["Observability", "Self-healing", "YC", "Agent工程"], "readingTime": "10 分钟", "date": "2026-06-01"
+    },
+    {
+      "slug": "chatbot-another-search", "label": "观点", "layer": "app",
+      "title": "Chatbot 是搜索的延伸，还是搜索的终结？",
+      "summary": "Chatbot 不会杀死搜索，但会重新定义「找到答案」的边界。从信息检索到答案生成，梳理两者的能力边界、协作形态，以及这个判断对产品设计的实际意义。",
+      "tags": ["Chatbot", "搜索", "产品思考", "观点"], "readingTime": "10 分钟", "date": "2026-05-11"
+    },
+    {
+      "slug": "01-agent-app-architecture", "label": "应用", "layer": "app",
       "title": "Agent 应用架构：从 Chatbot 到自主智能体",
       "summary": "对话即产品。从 FAQ Bot、RAG 助手到自主 Agent 的演进路径，剖析对话产品的核心架构、状态管理与 ChatGPT/Claude/通义千问的产品形态对照。",
       "tags": ["对话产品", "架构", "ChatGPT", "RAG"], "readingTime": "16 分钟", "date": "2026-05"
     },
     {
-      "slug": "02-agent-risk-control", "order": 2, "code": "02 · 风控", "layer": "app",
+      "slug": "02-agent-risk-control", "label": "风控", "layer": "app",
       "title": "Agent 风控：Prompt 注入、越狱、内容安全与 Guardrails",
       "summary": "Agent 越自主，攻击面越大。系统梳理 Prompt 注入与越狱的攻防、内容安全分层、工具调用的权限边界，以及 OpenAI/Anthropic/NVIDIA 的护栏实践。",
       "tags": ["安全", "Prompt注入", "Guardrails", "内容安全"], "readingTime": "18 分钟", "date": "2026-05"
     },
     {
-      "slug": "03-agent-growth", "order": 3, "code": "03 · 增长", "layer": "app",
+      "slug": "03-agent-growth", "label": "增长", "layer": "app",
       "title": "Agent 增长：AARRR、留存与智能体产品的增长飞轮",
       "summary": "AI 产品的增长不只是买量。从 AARRR 到 PMF 信号，分析 ChatGPT/Character.AI/Manus 的增长策略、激活与留存设计，以及 token 经济下的单位经济学。",
       "tags": ["增长", "AARRR", "留存", "单位经济"], "readingTime": "15 分钟", "date": "2026-05"
     },
     {
-      "slug": "04-aigc-engineering", "order": 4, "code": "04 · AIGC", "layer": "app",
+      "slug": "app-chatbot-production", "label": "Chatbot实战", "layer": "app",
+      "title": "Chatbot 落地实战：从原型到生产的工程全链路",
+      "summary": "Chatbot 不是搜索的替代品，而是搜索的演进形态。本文拆解从 FAQ Bot 到 RAG 助手再到具备工具调用能力的 Chatbot 的完整落地路径：架构选型、上下文管理、质量保障与生产稳定性。",
+      "tags": ["Chatbot", "RAG", "工程实践", "落地"], "readingTime": "18 分钟", "date": "2026-05"
+    },
+    {
+      "slug": "04-aigc-engineering", "label": "AIGC", "layer": "app",
       "title": "AIGC 工程化：多模态生成、RAG 与内容质量",
       "summary": "从文生文到文生图/视频，AIGC 落地的真正难点是工程与质量。剖析多模态生成栈、RAG 检索增强、内容质量评估与版权/水印合规。",
       "tags": ["AIGC", "多模态", "RAG", "扩散模型"], "readingTime": "17 分钟", "date": "2026-05"
     },
     {
-      "slug": "05-agent-orchestration", "order": 5, "code": "05 · 编排", "layer": "orchestration",
+      "slug": "05-agent-orchestration", "label": "编排", "layer": "orchestration",
       "title": "Agent 编排范式：ReAct、Plan-and-Execute 到 Multi-Agent",
       "summary": "智能体如何思考与行动？系统对比 ReAct、Reflexion、Plan-and-Execute、Tree-of-Thoughts 与多智能体协作，并解析 LangGraph、AutoGen、Manus 的编排实现。",
       "tags": ["编排", "ReAct", "Multi-Agent", "LangGraph"], "readingTime": "19 分钟", "date": "2026-05"
     },
     {
-      "slug": "06-context-engineering", "order": 6, "code": "06 · 上下文", "layer": "orchestration",
+      "slug": "06-context-engineering", "label": "上下文", "layer": "orchestration",
       "title": "上下文工程：记忆、检索与上下文窗口管理",
       "summary": "Context is all you need。从 Prompt 工程到上下文工程的范式跃迁：记忆系统、检索策略、上下文压缩与长上下文/KV 复用,对照 Anthropic、MemGPT 的实践。",
       "tags": ["上下文工程", "记忆", "RAG", "长上下文"], "readingTime": "17 分钟", "date": "2026-05"
     },
     {
-      "slug": "07-tools-and-mcp", "order": 7, "code": "07 · 工具/MCP", "layer": "orchestration",
+      "slug": "07-tools-and-mcp", "label": "工具/MCP", "layer": "orchestration",
       "title": "工具使用与 MCP：从 Function Calling 到 Model Context Protocol",
       "summary": "工具让模型能改变世界。梳理 Function Calling 的演进、工具设计的工程原则，以及 Anthropic 提出的 MCP 协议如何成为 Agent 生态的 USB-C。",
       "tags": ["工具调用", "MCP", "Function Calling", "协议"], "readingTime": "16 分钟", "date": "2026-05"
     },
     {
-      "slug": "08-agent-runtime-harness", "order": 8, "code": "08 · 运行时", "layer": "runtime",
+      "slug": "08-agent-runtime-harness", "label": "运行时", "layer": "runtime",
       "title": "Agent 运行时与 Harness 设计：剖析 Claude Code 与 Manus",
       "summary": "Agent = Harness + Model。深入运行时的 Agent Loop、上下文构建、工具沙箱、权限与中断恢复,以 Claude Code、Manus、OpenAI 的 Agent 运行时为案例。",
       "tags": ["Harness", "运行时", "Agent Loop", "Claude Code"], "readingTime": "20 分钟", "date": "2026-05"
     },
     {
-      "slug": "09-agent-evaluation", "order": 9, "code": "09 · 评测", "layer": "runtime",
+      "slug": "agent-checkpoint-design", "label": "Checkpoint", "layer": "runtime",
+      "title": "Agent Checkpoint 机制：状态快照、断点续跑与事务回滚",
+      "summary": "长任务 Agent 的生产基础设施。从 ARIES WAL、CRIU 进程快照、Flink Chandy-Lamport 屏障、Spark 血缘截断四大前辈设计出发，推导 Agent Checkpoint 的核心数据模型：状态快照 + 事件日志。覆盖断点续跑（工具调用缓存、幂等/非幂等区分）、确定性重放、Saga 补偿回滚，对照字节 Coze/Volcano、OpenAI Threads、Anthropic Claude Code、Google Vertex AI Pipelines、阿里 Qwen-Agent 的实现选型，附完整 Python 骨架与 16 条参考文献。",
+      "tags": ["Checkpoint", "状态管理", "断点续跑", "Saga", "事务回滚", "Flink", "WAL", "ARIES", "Agent工程", "LangGraph"], "readingTime": "35 分钟", "date": "2026-06-13"
+    },
+    {
+      "slug": "17-agent-sandbox", "label": "沙箱", "layer": "runtime",
+      "title": "Agent 沙箱全景：从进程隔离到 MicroVM 的工程实践",
+      "summary": "AI Agent 执行代码、读写文件、访问网络——沙箱是最后一道安全边界。本文拆解三个隔离层级（进程/容器/VM）的实现原理与最佳实践，对比 OpenAI、Anthropic、字节跳动、阿里云、Hermes、OpenClaw 的真实选型，并给出从零构建生产级沙箱服务的工程路径。",
+      "tags": ["沙箱", "安全隔离", "gVisor", "Firecracker", "Docker", "MicroVM", "Agent工程"], "readingTime": "22 分钟", "date": "2026-06-03"
+    },
+    {
+      "slug": "19-chatbot-annotation-platform", "label": "标注平台", "layer": "runtime",
+      "title": "Chatbot 标注平台工程：从用例管理到数据飞轮的系统设计",
+      "summary": "标注平台是连接生产流量→质量判断→系统改进的数据中枢。本文覆盖环境隔离与数据集版本管理、场景树与用例管理、人工/LLM辅助/规则三层标注、黄金集晋升与腐化治理、case回流、数据集API设计，并对比Label Studio、Argilla、Langfuse、Braintrust、Scale AI等主流平台，附金融客服Chatbot三个月建设案例。",
+      "tags": ["标注平台", "黄金集", "评测", "数据工程", "LLM-as-Judge", "Case回流", "数据集API"], "readingTime": "28 分钟", "date": "2026-06-03"
+    },
+    {
+      "slug": "18-chatbot-eval-flywheel", "label": "评测飞轮", "layer": "runtime",
+      "title": "Chatbot 能力建设飞轮：标注、评测、回归与自优化的系统工程",
+      "summary": "让 Chatbot 持续变好的本质是数据飞轮。本文从定位、架构、数据流程到团队协作，给出一套可落地的标注→评测→回归→自优化全链路实施路径，附电商客服 Chatbot 三个月建设的真实案例与常见陷阱。",
+      "tags": ["评测", "标注", "黄金集", "自优化", "Chatbot", "LLM-as-Judge", "数据飞轮"], "readingTime": "25 分钟", "date": "2026-06-03"
+    },
+    {
+      "slug": "09-agent-evaluation", "label": "评测", "layer": "runtime",
       "title": "Agent 评测与可观测性：从离线基准到线上 Tracing",
       "summary": "不可度量则不可改进。系统讲解 Agent 评测的难点、轨迹级评估、LLM-as-Judge、基准（SWE-bench/GAIA/τ-bench）与线上可观测性体系。",
       "tags": ["评测", "可观测性", "SWE-bench", "Tracing"], "readingTime": "16 分钟", "date": "2026-05"
     },
     {
-      "slug": "10-llm-fundamentals", "order": 10, "code": "10 · 模型", "layer": "model",
+      "slug": "10-llm-fundamentals", "label": "模型", "layer": "model",
       "title": "大模型底层：Transformer、注意力与推理机制",
       "summary": "从 Attention is All You Need 讲起：自注意力、位置编码、Decoder-only 架构、Scaling Law,以及为什么 Transformer 能支撑起整个 Agent 时代。",
       "tags": ["Transformer", "注意力", "Scaling Law", "原理"], "readingTime": "18 分钟", "date": "2026-05"
     },
     {
-      "slug": "11-post-training-alignment", "order": 11, "code": "11 · 对齐", "layer": "model",
+      "slug": "11-post-training-alignment", "label": "对齐", "layer": "model",
       "title": "后训练与对齐：RLHF、DPO 与 Constitutional AI",
       "summary": "预训练给了模型知识，后训练给了它价值观与能力。剖析 SFT、RLHF、DPO、Constitutional AI 与面向 Agent 的 RL,对照 InstructGPT 与 Claude 的对齐路线。",
       "tags": ["RLHF", "DPO", "对齐", "后训练"], "readingTime": "18 分钟", "date": "2026-05"
     },
-    {
-      "slug": "12-inference-optimization", "order": 12, "code": "12 · 推理", "layer": "model",
+{
+      "slug": "12-inference-optimization", "label": "推理", "layer": "model",
       "title": "推理优化与部署：KV Cache、量化、投机解码与服务化",
       "summary": "再强的模型,推不动也白搭。系统讲解 KV Cache、PagedAttention、连续批处理、量化与投机解码,以及 vLLM/SGLang/TensorRT-LLM 的服务化实践。",
       "tags": ["推理优化", "KV Cache", "vLLM", "量化"], "readingTime": "17 分钟", "date": "2026-05"
+    },
+    {
+      "slug": "14-memory-system-implementation", "label": "记忆系统", "layer": "orchestration",
+      "title": "记忆系统的实现：Agent 如何突破上下文窗口的边界",
+      "summary": "大模型天生无状态，记忆系统是 Agent 从「工具」变成「伙伴」的关键工程。本文深入实现层：四类记忆的分类、工作记忆压缩策略、向量库读写设计、MemGPT 架构解析，以及生产中的四个高频陷阱。",
+      "tags": ["记忆系统", "MemGPT", "向量数据库", "上下文工程", "Agent"], "readingTime": "25 分钟", "date": "2026-06-01"
+    },
+    {
+      "slug": "15-prompt-engineering-practice", "label": "Prompt实战", "layer": "orchestration",
+      "title": "提示词工程实战：利用注意力分布写出真正有效的 Prompt",
+      "summary": "Prompt 不是玄学，是工程。从 Transformer U 形注意力出发，推导 System Prompt 内部组织、Few-shot 示例放置、RAG 内容布局、指令强化手法，附生产直用的三套模板和九项自查清单。",
+      "tags": ["Prompt工程", "注意力机制", "Few-shot", "RAG", "上下文工程"], "readingTime": "18 分钟", "date": "2026-06-01"
+    },
+    {
+      "slug": "20-skill-engineering", "label": "Skill工程", "layer": "orchestration",
+      "title": "生产级 Skill 工程：写一个格式良好、稳定运行的 Claude Code 命令",
+      "summary": "如何把一个临时 slash command 变成可生产部署、稳定运行的 skill？覆盖四层结构（触发/上下文/执行/输出）、TRIGGER+SKIP 精确设计、副作用管理、幂等输出、六个高频陷阱与测试方法，对照 Anthropic、OpenAI、Google、字节跳动、阿里的工具设计规范，附完整 /check-migration 示例。",
+      "tags": ["Claude Code", "Skill", "Slash Command", "提示工程", "Agent工程", "工具设计"], "readingTime": "25 分钟", "date": "2026-06-04"
+    },
+    {
+      "slug": "langgraph-framework-deep-dive", "label": "LangGraph", "layer": "orchestration",
+      "title": "LangGraph 框架深度解读：有状态 Agent 编排的工程基础",
+      "summary": "LangGraph 不是让你少写代码的框架，而是给 Agent 的「状态」和「流程」提供严肃工程抽象。本文从核心方法论（图即状态机）出发，逐层拆解 StateGraph、Checkpointer、Human-in-the-Loop、Send API 并行、多 Agent 协作等关键功能点，梳理适用场景（代码 Agent、长周期研究、客服升级），并给出 State 设计、节点幂等性、Checkpointer 选型等 12 条生产最佳实践，附完整代码审查 Agent 案例与 16 条参考文献。",
+      "tags": ["LangGraph", "Agent编排", "状态机", "Checkpointer", "Human-in-the-Loop", "Multi-Agent", "Send API", "流式输出", "Agent工程"],
+      "readingTime": "35 分钟", "date": "2026-06-13"
+    },
+    {
+      "slug": "agentic-agent-best-practices", "label": "Agentic实践", "layer": "orchestration",
+      "title": "Agentic Agent 工程最佳实践：从字节、阿里看多步骤智能体的架构演进",
+      "summary": "Agentic AI 已从研究走向大规模生产部署。本文系统梳理 Agentic Agent 的核心架构范式（ReAct / PRO / DPRO），深入拆解 PRO（Plan→React→Observe）三阶循环与 DPRO（Decompose→Plan→React→Observe）两层嵌套的原理与工程要点，并从字节跳动（AgentBench、AgentTuning、OpenAgents、Coze）和阿里巴巴（Qwen-Agent、ToolBench、OS-Copilot）的公开论文与产品实践中提炼可复用的最佳实践，附 16 条参考文献。",
+      "tags": ["Agentic AI", "PRO", "DPRO", "ReAct", "字节跳动", "阿里巴巴", "多Agent", "Agent工程", "编排"], "readingTime": "30 分钟", "date": "2026-06-10"
+    },
+    {
+      "slug": "13-reasoning-models", "label": "推理模型", "layer": "model",
+      "title": "推理模型的本质：不是 CoT，是 Search",
+      "summary": "o1/o3、DeepSeek-R1、Claude Reasoning 的共同思想是什么？从单次前向传播到 Test-Time Compute，讲清楚为什么更多计算能换来更高智能，以及非推理模型和推理模型各自适合的真实场景。",
+      "tags": ["推理模型", "Test-Time Compute", "CoT", "RL", "o1"], "readingTime": "16 分钟", "date": "2026-06-01"
+    },
+    {
+      "slug": "16-intent-recognition-clarification", "label": "意图识别", "layer": "app",
+      "title": "意图识别与意图澄清：从规则树到 LLM 的架构演进",
+      "summary": "从规则引擎、ML 分类器到 LLM-native，三代意图识别架构的能力边界与失效模式。以电商场景为主线，对比同一句话在三代系统下的处理差异，并给出意图澄清的决策框架：何时静默补全、何时追问、问几次。",
+      "tags": ["意图识别", "NLU", "对话产品", "槽位填充", "电商"], "readingTime": "20 分钟", "date": "2026-06-02"
+    },
+    {
+      "slug": "distributed-00-overview", "label": "总览", "layer": "distributed",
+      "title": "分布式系统全景：从单机到集群的演进之路",
+      "summary": "为什么单机不够？网络不可靠、节点会故障、时钟会漂移——分布式系统的三大本质挑战。本文从单机到集群的演进脉络出发，建立分布式系统的整体认知框架，并给出全系列的阅读路线图。",
+      "tags": ["分布式系统", "架构", "综述"], "readingTime": "12 分钟", "date": "2026-06"
+    },
+    {
+      "slug": "distributed-01-cap-consistency", "label": "理论基础", "layer": "distributed",
+      "title": "CAP、BASE 与一致性模型：分布式系统的理论地基",
+      "summary": "CAP 不是「只能选两个」，而是网络分区时你必须在 C 和 A 之间做取舍。本文深入拆解 CAP 定理的真实含义、从线性化到最终一致性的完整谱系、ACID vs BASE 的工程语义，以及向量时钟如何解决「谁先发生」的难题。",
+      "tags": ["CAP", "一致性", "BASE", "向量时钟", "线性化"], "readingTime": "20 分钟", "date": "2026-06"
+    },
+    {
+      "slug": "distributed-02-consensus", "label": "共识协议", "layer": "distributed",
+      "title": "Paxos → Raft：分布式共识的工程演进",
+      "summary": "如何让多个节点对同一件事达成一致？从 Basic Paxos 的三阶段握手，到 Multi-Paxos 的日志流水线，再到 Raft 的强领导者模型——追踪共识算法 30 年的工程演进，拆解 etcd、TiKV、CockroachDB 的真实选型。",
+      "tags": ["Paxos", "Raft", "共识", "etcd", "分布式协议"], "readingTime": "25 分钟", "date": "2026-06"
+    },
+    {
+      "slug": "distributed-03-communication", "label": "分布式通讯", "layer": "distributed",
+      "title": "分布式通讯：RPC、服务发现与消息队列",
+      "summary": "服务间通讯是分布式系统的血管。本文覆盖 RPC 从 REST 到 gRPC 的演进、Protocol Buffers 的工程优势、服务发现的三种模式（客户端/服务端/DNS），以及 Kafka/Pulsar 消息队列的核心设计：背压、顺序保证、消费者组。",
+      "tags": ["RPC", "gRPC", "Kafka", "服务发现", "消息队列"], "readingTime": "20 分钟", "date": "2026-06"
+    },
+    {
+      "slug": "distributed-04-lock", "label": "分布式锁", "layer": "distributed",
+      "title": "分布式锁：Redis、ZooKeeper、etcd 实现对比",
+      "summary": "分布式锁不是本地锁的网络版，它要处理节点宕机、网络分区、时钟漂移三个本地锁永远不需要考虑的问题。本文深入 Redis SETNX/Redlock、ZooKeeper 临时顺序节点、etcd Lease+Watch 三种主流实现的原理与陷阱，给出生产选型决策树。",
+      "tags": ["分布式锁", "Redis", "ZooKeeper", "etcd", "Redlock"], "readingTime": "18 分钟", "date": "2026-06"
+    },
+    {
+      "slug": "distributed-05-id", "label": "分布式ID", "layer": "distributed",
+      "title": "分布式 ID：从 UUID 到雪花算法的工程演进",
+      "summary": "全局唯一 ID 是分布式系统最基础的原语之一。本文对比 UUID v1/v4/v7、数据库自增序列的跨分片问题、Twitter Snowflake 的位图设计、美团 Leaf 的双模式（号段/Snowflake），以及时钟回拨这个被低估的生产陷阱。",
+      "tags": ["分布式ID", "Snowflake", "UUID", "Leaf", "时钟回拨"], "readingTime": "15 分钟", "date": "2026-06"
+    },
+    {
+      "slug": "distributed-06-transaction", "label": "分布式事务", "layer": "distributed",
+      "title": "分布式事务：2PC、Saga 与 TCC 的工程选型",
+      "summary": "跨服务的事务是分布式系统最难的工程问题之一。本文拆解 XA/2PC 的阻塞性陷阱、TCC「预留资源」的工程难度、Saga「补偿而非回滚」的编排 vs 协作两种模式，以及本地消息表+事务消息如何用最终一致性绕开强一致的代价。",
+      "tags": ["分布式事务", "2PC", "Saga", "TCC", "最终一致性"], "readingTime": "22 分钟", "date": "2026-06"
+    },
+    {
+      "slug": "distributed-07-storage", "label": "分布式存储", "layer": "distributed",
+      "title": "分布式存储：从 Dynamo 到 Bigtable 的架构图谱",
+      "summary": "分布式存储的差异本质是一致性 vs 可用性与存储引擎的两个维度的选择。本文从 LSM-Tree vs B-Tree 引擎层出发，拆解一致性哈希分片、副本策略（主从/多主/无主）、Dynamo（最终一致）、Bigtable（强一致）、Cassandra 的架构差异与适用场景。",
+      "tags": ["分布式存储", "Dynamo", "Bigtable", "Cassandra", "LSM-Tree"], "readingTime": "25 分钟", "date": "2026-06"
+    },
+    {
+      "slug": "distributed-08-database", "label": "分布式数据库", "layer": "distributed",
+      "title": "分布式数据库：Spanner、TiDB 与 NewSQL 的架构解析",
+      "summary": "NewSQL 的野心是同时拥有 SQL 的关系模型和 NoSQL 的水平扩展能力。本文从 Google Spanner 的 TrueTime 外部一致性切入，对比 CockroachDB 的混合逻辑时钟、TiDB 的 TiKV+PD+TiFlash 三层架构，以及分布式 SQL 在跨分片查询、全局索引、MVCC 上的共同挑战。",
+      "tags": ["NewSQL", "Spanner", "TiDB", "CockroachDB", "MVCC"], "readingTime": "22 分钟", "date": "2026-06"
+    },
+    {
+      "slug": "distributed-09-computing", "label": "分布式计算", "layer": "distributed",
+      "title": "分布式计算：MapReduce、Spark 与 Flink 的批流演进",
+      "summary": "从 MapReduce 的「移动计算而非移动数据」，到 Spark 的内存计算与 DAG 优化，再到 Flink 的流批一体与精确一次语义——分布式计算 20 年的演进脉络。覆盖检查点机制、水印与乱序处理、背压传播与 K8s 调度集成。",
+      "tags": ["MapReduce", "Spark", "Flink", "流批一体", "检查点"], "readingTime": "22 分钟", "date": "2026-06"
+    },
+    {
+      "slug": "distributed-10-observability", "label": "可观测性", "layer": "distributed",
+      "title": "分布式系统可观测性：Tracing、Metrics 与 Logging 的工程实践",
+      "summary": "分布式系统最难 debug 的不是 bug，而是「出问题了但你不知道在哪」。本文系统讲解三大支柱的职责边界、OpenTelemetry 统一采集层、Jaeger 分布式 Tracing 的 TraceID/SpanID 传播机制、Prometheus+Grafana 告警体系，以及 SLO/Error Budget 的工程落地。",
+      "tags": ["可观测性", "OpenTelemetry", "Jaeger", "Prometheus", "Tracing", "SLO"], "readingTime": "20 分钟", "date": "2026-06"
+    },
+    {
+      "slug": "distributed-11-chaos", "label": "混沌工程", "layer": "distributed",
+      "title": "混沌工程与故障注入：从 Chaos Monkey 到 Chaos Mesh",
+      "summary": "「在生产出问题之前，主动让它出问题。」混沌工程的核心是用可控的故障暴露系统的脆弱假设。本文从稳态假说出发，拆解网络分区/节点宕机/延迟注入/资源耗尽四类故障模式，对比 Chaos Mesh、LitmusChaos、AWS FIS 的工具选型，并给出从沙盒到生产的实施路径与 GameDay 方法。",
+      "tags": ["混沌工程", "故障注入", "Chaos Mesh", "Netflix", "SRE", "GameDay"], "readingTime": "18 分钟", "date": "2026-06"
     }
   ]
 }

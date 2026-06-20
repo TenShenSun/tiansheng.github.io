@@ -1,0 +1,22 @@
+{
+  "notes": [
+    {
+      "id": "swebench-key",
+      "type": "阅读", "title": "SWE-bench Verified（2024）", "date": "2026-05",
+      "body": "人工筛选 500 条有测试的 GitHub issue，解决率从 Lite 的 ~20% 跳到 ~50%。核心结论：**有可验证的测试是评测 Agent coding 能力的前提**，光靠人工判断噪声太大。\n\n→ 完整分析见《Agent 评测与可观测性》（09 篇）。",
+      "tags": ["论文", "评测", "SWE-bench"]
+    },
+    {
+      "id": "rag-chunking",
+      "type": "观点", "title": "RAG 效果差，先怀疑切分", "date": "2026-05",
+      "body": "很多人一看 RAG 不好就去换更强的 embedding 或检索器，但真正的瓶颈常常在**文档切分策略**——切太碎丢上下文，切太大稀释信号。先把 chunking 调对，再谈换模型。",
+      "tags": ["RAG", "经验"]
+    },
+    {
+      "id": "eval-first",
+      "type": "启发", "title": "把评测当成第一优先级", "date": "2026-05",
+      "body": "不可度量则不可改进。动手做 Agent 之前先想清楚**怎么判断它变好了**——哪怕只是 20 条手工标注的轨迹，也比凭感觉调 prompt 靠谱得多。",
+      "tags": ["评测", "工程习惯"]
+    }
+  ]
+}

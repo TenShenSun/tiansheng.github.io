@@ -1,6 +1,7 @@
 title: Sun Tiansheng
-description: AI Agent / LLM / Backend Architecture
+description: AI Agent Architect
 theme: minima
 
-author:
-  name: Sun Tiansheng
+header_pages:
+  - about.md
+  - projects.md

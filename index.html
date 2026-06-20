@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agent Architect · 全栈智能体架构笔记</title>
+  <title>Agent Architect · 全栈智能体架构博客</title>
   <meta name="description" content="从 Agent 应用（风控/增长/AIGC）到编排、运行时（Harness + Model）再到模型底层的全栈技术博客系列。" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="./assets/css/style.css" />
   <!-- Markdown + 代码高亮（带本地降级）-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css" />
+  <link id="hljs-dark"  rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github-dark.min.css" />
+  <link id="hljs-light" rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/github.min.css" disabled />
 </head>
 <body data-theme="dark">
   <div id="app">
@@ -16,12 +17,15 @@
     <header class="topbar">
       <a class="brand" href="#/">
         <span class="brand-mark">◆</span>
-        <span class="brand-text">Agent<span class="accent">Architect</span></span>
+        <span class="brand-text">Agent<span class="accent">智能体</span></span>
       </a>
       <nav class="topnav">
         <a href="#/" data-nav="home">首页</a>
         <a href="#/series" data-nav="series">系列</a>
+        <a href="#/notes" data-nav="notes">札记</a>
         <a href="#/about" data-nav="about">关于</a>
+        <a href="#/interview" data-nav="interview">面试</a>
+        <a href="#/landscape" data-nav="landscape">AI落地场景</a>
       </nav>
       <div class="topbar-actions">
         <input id="search" class="search" type="search" placeholder="搜索文章 / 关键词…" autocomplete="off" />
