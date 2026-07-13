@@ -336,6 +336,11 @@ main { min-height: calc(100vh - 200px); }
 .note-reading { --cl: #a78bfa; }
 .note-note    { --cl: var(--text-soft); }
 
+/* 数学公式（KaTeX） */
+.math-block { overflow-x: auto; text-align: center; padding: .75rem 0; }
+.math-block .katex-display { margin: 0; }
+.katex { font-size: 1.05em; }
+
 /* 响应式 */
 @media (max-width: 900px) {
   body { background-size: 32px 32px, 32px 32px; }

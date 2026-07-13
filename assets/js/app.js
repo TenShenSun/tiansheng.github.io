@@ -99,6 +99,34 @@
   }
   setupMarked();
 
+  /* ---------- 数学公式渲染（KaTeX）----------
+     在 marked 处理前用 HTML 注释占位，防止 LaTeX 里的 _ * 等字符被误解析。
+     支持 $$...$$（块级）和 $...$（行内）。 */
+  function parseMarkdown(md) {
+    if (!window.marked) return `<pre>${esc(md)}</pre>`;
+    const blocks = [];
+    // 用真实 HTML 元素占位：marked 会原样保留 <div>/<span>，
+    // 但会把 LaTeX 里的 _ * 等误解析为 Markdown 语法。
+    const safe = md
+      .replace(/\$\$([\s\S]+?)\$\$/g, (_, math) => {
+        const idx = blocks.length;
+        blocks.push({ display: true, math });
+        return `\n<div data-math-idx="${idx}"></div>\n`;
+      })
+      .replace(/\$([^$\n]+?)\$/g, (_, math) => {
+        const idx = blocks.length;
+        blocks.push({ display: false, math });
+        return `<span data-math-idx="${idx}"></span>`;
+      });
+    let html = window.marked.parse(safe);
+    if (!window.katex || !blocks.length) return html;
+    return html.replace(/<(div|span) data-math-idx="(\d+)"><\/(?:div|span)>/g, (_, _tag, i) => {
+      const { math, display } = blocks[+i];
+      const rendered = katex.renderToString(math, { displayMode: display, throwOnError: false });
+      return display ? `<div class="math-block">${rendered}</div>` : rendered;
+    });
+  }
+
   async function loadManifest() {
     if (MANIFEST) return MANIFEST;
     const res = await fetch("./posts/manifest.json", { cache: "no-cache" });
@@ -406,7 +434,7 @@
 
     // 去掉 markdown 顶部的一级标题（用元数据渲染）
     const body = md.replace(/^#\s+.*\n+/, "");
-    const html = window.marked ? window.marked.parse(body) : `<pre>${esc(body)}</pre>`;
+    const html = parseMarkdown(body);
 
     const prev = POSTS[idx - 1];
     const next = POSTS[idx + 1];

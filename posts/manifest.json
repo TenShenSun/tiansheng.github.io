@@ -44,6 +44,12 @@
       "tags": ["面试", "Chatbot", "RAG", "Agent", "系统设计", "可观测性"], "readingTime": "20 分钟", "date": "2026-06-02"
     },
     {
+      "slug": "career-03-agent-interview", "label": "Agent面试", "layer": "career",
+      "title": "Agent 工程师面试高频考点：编排、工具调用、评测与系统设计",
+      "summary": "覆盖 Agent 面试六大维度：ReAct vs Plan-and-Execute、Multi-Agent 架构、工具设计原则与 MCP、记忆与上下文压缩、LLM-as-Judge 评测、Prompt 注入防御，以及「设计 1000+ 并发 Agent 服务」「Checkpoint 机制」两道经典系统设计题，每题附面试官真正想听到的答案要点。",
+      "tags": ["面试", "Agent", "ReAct", "工具调用", "MCP", "Checkpoint", "系统设计", "可观测性", "安全"], "readingTime": "25 分钟", "date": "2026-06-23"
+    },
+    {
       "slug": "landscape-aml-agent", "label": "产品分析", "layer": "landscape",
       "title": "反洗钱 × AI Agent：从规则引擎到智能体的合规革命",
       "summary": "AML 是金融合规里误报率最高、技术债最重的场景——传统规则引擎告警误报率高达 90%。本文从 AML 监管背景、六大核心场景出发，拆解传统方案的结构性痛点，给出 GNN+LLM+Agent 的完整技术路径，对比 OKX、Binance、蚂蚁天盾、JP Morgan、HSBC 的真实实践，并深度拆解从 0 到 1 构建 AML 智能平台的分阶段落地路径：场景优先级矩阵、三阶段技术演进、完整技术栈清单、三个关键工程决策与 MVP 验收清单。",
@@ -146,6 +152,18 @@
       "tags": ["评测", "标注", "黄金集", "自优化", "Chatbot", "LLM-as-Judge", "数据飞轮"], "readingTime": "25 分钟", "date": "2026-06-03"
     },
     {
+      "slug": "agent-execution-infra", "label": "执行基础设施", "layer": "runtime",
+      "title": "Agent 执行基础设施：长短 Agent、容器调度与启动优化",
+      "summary": "基础设施决定 Agent 系统的上限。本文从长短 Agent 分类出发，逐层拆解容器/Pod 打包方式、Sidecar 模式、线程与调度模型（异步协程、优先级队列、Work Stealing），深入对比冷启动/温启动/热启动的延迟与资源权衡，并给出权限隔离的四个维度（系统级/网络级/API 级/操作级）的生产实践，对照 Anthropic Claude Code、字节 Coze、OpenAI 的选型逻辑。",
+      "tags": ["运行时", "容器", "调度", "冷启动", "热启动", "权限隔离", "K8s", "Agent工程"], "readingTime": "30 分钟", "date": "2026-06-24"
+    },
+    {
+      "slug": "agent-eval-platform", "label": "Eval平台", "layer": "runtime",
+      "title": "Agent Eval 平台工程：数据收集、打标、评测与 Benchmark 体系",
+      "summary": "不可度量则不可改进。本文系统拆解一套完整 Agent Eval 平台的五个核心模块：生产 Trace 分层采样与脱敏、LLM-as-Judge + 人工混合标注流水线、黄金集管理与腐化检测、离线评测管道与指标体系、自建垂域 Benchmark 设计，以及本地 eval CLI 与影子评测的开发者工作流。最后深入对比自建平台与 LangGraph/LangSmith 生态的能力边界与选型逻辑，附 15 条参考文献。",
+      "tags": ["评测", "Benchmark", "LLM-as-Judge", "黄金集", "数据标注", "LangSmith", "LangGraph", "数据飞轮", "Agent工程"], "readingTime": "35 分钟", "date": "2026-07-05"
+    },
+    {
       "slug": "09-agent-evaluation", "label": "评测", "layer": "runtime",
       "title": "Agent 评测与可观测性：从离线基准到线上 Tracing",
       "summary": "不可度量则不可改进。系统讲解 Agent 评测的难点、轨迹级评估、LLM-as-Judge、基准（SWE-bench/GAIA/τ-bench）与线上可观测性体系。",
@@ -199,6 +217,12 @@
       "title": "Agentic Agent 工程最佳实践：从字节、阿里看多步骤智能体的架构演进",
       "summary": "Agentic AI 已从研究走向大规模生产部署。本文系统梳理 Agentic Agent 的核心架构范式（ReAct / PRO / DPRO），深入拆解 PRO（Plan→React→Observe）三阶循环与 DPRO（Decompose→Plan→React→Observe）两层嵌套的原理与工程要点，并从字节跳动（AgentBench、AgentTuning、OpenAgents、Coze）和阿里巴巴（Qwen-Agent、ToolBench、OS-Copilot）的公开论文与产品实践中提炼可复用的最佳实践，附 16 条参考文献。",
       "tags": ["Agentic AI", "PRO", "DPRO", "ReAct", "字节跳动", "阿里巴巴", "多Agent", "Agent工程", "编排"], "readingTime": "30 分钟", "date": "2026-06-10"
+    },
+    {
+      "slug": "nlp-bm25-algorithm", "label": "BM25", "layer": "model",
+      "title": "BM25 算法深度解析：经典信息检索的工程实践",
+      "summary": "BM25 是 30 年前的算法，却仍是今天 RAG、搜索引擎、候选召回的标配。本文从 TF-IDF 的缺陷出发，逐步拆解 BM25 的完整公式（TF 饱和、文档长度归一化、Robertson IDF），给出可运行的 Python 实现与倒排索引优化，并深入讲解 BM25 在现代混合检索（Hybrid Search）中与向量搜索的互补关系，附 BM25+、BM25F 变体、Elasticsearch 配置与面试高频考点。",
+      "tags": ["BM25", "信息检索", "TF-IDF", "搜索", "RAG", "混合检索", "NLP"], "readingTime": "25 分钟", "date": "2026-06-20"
     },
     {
       "slug": "13-reasoning-models", "label": "推理模型", "layer": "model",
